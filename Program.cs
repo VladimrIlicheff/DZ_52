@@ -25,7 +25,7 @@ int[,] InitMatrix(int m, int n)
     {
         for (int j = 0; j < n; j++)
         {
-            resultMatrix[i, j] = rnd.Next(0, 10);
+            resultMatrix[i, j] = rnd.Next(-10, 10);
         }
     }
     return resultMatrix;
@@ -47,23 +47,23 @@ void Average(int[,] matrix)
 {
     for (int j = 0; j < matrix.GetLength(1); j++)
     {
-        double colAvr = 0;
+        double sum = 0;
         for (int i = 0; i < matrix.GetLength(0); i++)
         {
 
-            colAvr += matrix[i, j];
+            sum += matrix[i, j];
         }
-        colAvr = Math.Round((colAvr / matrix.GetLength(0)), 2);
-        Console.Write(colAvr + " ****** ");
+        sum = Math.Round((sum / matrix.GetLength(0)), 2);
+        Console.Write(sum + " * * * ");
     }
 }
 int m = GetNumber("Введите число m:");
 int n = GetNumber("Введите число n:");
-int k = GetNumber("Введите номер в сторке:");
-int l = GetNumber("Введите номер в столбце:");
-int[,] matrix = InitMatrix(k, l);
+Console.WriteLine();
+int[,] matrix = InitMatrix(m,n);
 PrintMatrix(matrix);
-Console.WriteLine("************");
+Console.WriteLine();
+Console.WriteLine("= = = = = = = = = = = = = = = = =");
 Console.WriteLine();
 Average(matrix);
 Console.WriteLine();
